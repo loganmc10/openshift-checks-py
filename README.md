@@ -67,7 +67,7 @@ podman run --pull always -it --rm -v $HOME/.kube/config:/kubeconfig:Z quay.io/lo
 
 ## Linux Binary
 ```
-curl -L https://gitlab.com/loganmc10/openshift-checks-py/-/jobs/artifacts/main/raw/openshift-checks?job=build -o openshift-checks
+curl -L https://github.com/loganmc10/openshift-checks-py/releases/latest/download/openshift-checks -o openshift-checks
 chmod +x ./openshift-checks
 ```
 
