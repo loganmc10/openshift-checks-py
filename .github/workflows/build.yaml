@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     container: registry.access.redhat.com/ubi9/ubi:latest
     steps:
-      - uses: actions/checkout@v3
       - name: Install packages
         run: |
           dnf -y update
-          dnf -y install python3-pip binutils
+          dnf -y install python3-pip binutils git
           pip3 install -r requirements.txt
           pip3 install flake8 black mypy bandit types-tabulate types-requests types-python-dateutil types-PyYAML
+      - uses: actions/checkout@v3
       - name: Check code
         run: |
           flake8 --ignore E501,W503 .
@@ -27,16 +27,19 @@ jobs:
     runs-on: ubuntu-latest
     container: registry.access.redhat.com/ubi9/ubi:latest
     steps:
+      - name: Install packages
+        run: |
+          dnf -y update
+          dnf -y install python3-pip binutils gcc zlib-devel git
+          pip3 install wheel
+          pip3 install pyinstaller
       - uses: actions/checkout@v3
       - name: Build binary
         run: |
-          dnf -y update
-          dnf -y install python3-pip binutils gcc zlib-devel
-          pip3 install wheel
           pip3 install -r requirements.txt
-          pip3 install pyinstaller
           pyinstaller -F ./openshift-checks.py
           mv dist/openshift-checks openshift-checks
+
       - name: Upload binary
         uses: actions/upload-artifact@v3
         with:
