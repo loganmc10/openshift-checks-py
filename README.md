@@ -62,7 +62,7 @@ openshift-checks.py -m <path_to_must_gather_folder>
 Initialization can take a while when running against a must-gather, it needs to read all the YAML resource definitions into memory.
 ## Container
 ```
-podman run --pull always -it --rm -v $HOME/.kube/config:/kubeconfig:Z quay.io/lmcnaugh/openshift-checks-py:latest -h
+podman run --pull always -it --rm -v $HOME/.kube/config:/kubeconfig:Z quay.io/loganmc10/openshift-checks-py:latest -h
 ```
 
 ## Linux Binary

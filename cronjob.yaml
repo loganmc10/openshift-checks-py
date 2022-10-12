@@ -38,7 +38,7 @@ spec:
         spec:
           containers:
             - name: openshift-checks-py
-              image: quay.io/lmcnaugh/openshift-checks-py:latest
+              image: quay.io/loganmc10/openshift-checks-py:latest
               imagePullPolicy: Always
               args: ["--incluster-config", "--no-colors"]
               resources:
