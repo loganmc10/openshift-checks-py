@@ -11,12 +11,14 @@ jobs:
     container: registry.access.redhat.com/ubi9/ubi:latest
     steps:
       - uses: actions/checkout@v3
-      - name: Check code
+      - name: Install packages
         run: |
           dnf -y update
           dnf -y install python3-pip binutils
           pip3 install -r requirements.txt
           pip3 install flake8 black mypy bandit types-tabulate types-requests types-python-dateutil types-PyYAML
+      - name: Check code
+        run: |
           flake8 --ignore E501,W503 .
           mypy --strict .
           bandit -r .
