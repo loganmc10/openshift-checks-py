@@ -2,7 +2,6 @@ from kubernetes import dynamic, client  # type:ignore
 from typing import Any, List, Dict
 from datetime import datetime, timezone
 import requests
-import base64
 import argparse
 import ocp_utils
 import subprocess  # nosec
@@ -54,16 +53,10 @@ def read_namespaced_pod_log(namespace: str, name: str, container: str) -> Any:
 
 
 def _get_prom_token() -> str:
-    sa = ocp_utils.api.ServiceAccount.get(
-        name="prometheus-k8s", namespace="openshift-monitoring"
+    sa_token_request = client.CoreV1Api().create_namespaced_service_account_token(
+        namespace="openshift-monitoring", name="prometheus-k8s", body={}
     )
-    sa_token_name: Dict[str, str] = next(
-        (item for item in sa["secrets"] if "token" in item["name"]), {}
-    )
-    secret = ocp_utils.api.Secret.get(
-        name=sa_token_name["name"], namespace=sa["metadata"]["namespace"]
-    )
-    return f"Bearer {base64.b64decode(secret['data']['token']).decode()}"
+    return f"Bearer {sa_token_request.status.token}"
 
 
 def _get_prom_route() -> str:
