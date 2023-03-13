@@ -5,7 +5,7 @@ import argparse
 from kubernetes import utils  # type: ignore
 from tabulate import tabulate
 from decimal import Decimal
-from typing import Dict, Any, List
+from typing import Dict, Any, List  # noqa F401
 
 query_range = "5m"
 

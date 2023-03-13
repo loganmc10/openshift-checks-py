@@ -2,7 +2,7 @@
 import ocp_utils
 import argparse
 from tabulate import tabulate
-from typing import Dict, Any, List
+from typing import Dict, Any, List  # noqa F401
 
 bad_kernels = [{"bug": "bz1948052", "kernel": "4.18.0-193.24.1.el8_2.dt1.x86_64"}]
 

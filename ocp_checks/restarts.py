@@ -4,7 +4,7 @@ import argparse
 import dateutil.parser
 from tabulate import tabulate
 from datetime import timedelta
-from typing import Dict, Any, List
+from typing import Dict, Any, List  # noqa F401
 
 
 def do_check(args: argparse.Namespace) -> str:

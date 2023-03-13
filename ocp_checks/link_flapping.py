@@ -3,7 +3,7 @@ import ocp_utils
 import argparse
 from tabulate import tabulate
 from decimal import Decimal
-from typing import List, Dict, Any
+from typing import List, Dict, Any  # noqa F401
 
 query_range = "1h"
 

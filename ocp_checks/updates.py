@@ -1,7 +1,7 @@
 # This check lists available updates for the cluster and the operators
 import ocp_utils
 import argparse
-from typing import List, Dict, Any
+from typing import List, Dict, Any  # noqa F401
 from tabulate import tabulate
 from packaging import version
 

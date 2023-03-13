@@ -2,7 +2,7 @@
 import ocp_utils
 import argparse
 from tabulate import tabulate
-from typing import Dict, Any, List
+from typing import Dict, Any, List  # noqa F401
 
 
 def do_check(args: argparse.Namespace) -> str:

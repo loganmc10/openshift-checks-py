@@ -1,7 +1,7 @@
 # This check looks for Warning and Critical alerts that are firing on the cluster
 import argparse
 from tabulate import tabulate
-from typing import Dict, Any, List
+from typing import Dict, Any, List  # noqa F401
 import ocp_utils
 
 

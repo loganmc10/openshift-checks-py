@@ -5,7 +5,7 @@ import ocp_utils
 import argparse
 import concurrent.futures
 import subprocess  # nosec
-from typing import Dict, List, Any
+from typing import Dict, List, Any  # noqa F401
 from packaging import version
 from tabulate import tabulate
 
