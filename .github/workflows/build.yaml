@@ -15,7 +15,7 @@ jobs:
         run: |
           dnf -y update
           dnf -y install python3-pip binutils git
-          pip3 install flake8 black mypy bandit types-tabulate types-requests types-python-dateutil types-PyYAML
+          pip3 install flake8 black mypy bandit types-tabulate "types-requests<2.31" types-python-dateutil types-PyYAML
       - uses: actions/checkout@v4
       - name: Check code
         run: |
