@@ -16,7 +16,7 @@ jobs:
           dnf -y update
           dnf -y install python3-pip binutils git
           pip3 install flake8 black mypy bandit types-tabulate types-requests types-python-dateutil types-PyYAML
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Check code
         run: |
           pip3 install -r requirements.txt
@@ -34,7 +34,7 @@ jobs:
           dnf -y install python3-pip binutils gcc zlib-devel git
           pip3 install wheel
           pip3 install pyinstaller
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Build binary
         run: |
           pip3 install -r requirements.txt
